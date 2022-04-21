@@ -1,0 +1,400 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{14FBAF43-9503-4288-A1FF-11069DA12C2F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Blog</RootNamespace>
+    <AssemblyName>Blog</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44346</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Classes\CustomRoleProvider.cs" />
+    <Compile Include="App_Classes\Settings.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Attributes\LogKayıtAttributes.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\EtiketController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KategoriController.cs" />
+    <Compile Include="Controllers\KullaniciController.cs" />
+    <Compile Include="Controllers\MakaleController.cs" />
+    <Compile Include="Controllers\YazarController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlogDB.cs" />
+    <Compile Include="Models\Etiket.cs" />
+    <Compile Include="Models\Kategori.cs" />
+    <Compile Include="Models\Kullanici.cs" />
+    <Compile Include="Models\KullaniciRol.cs" />
+    <Compile Include="Models\Log.cs" />
+    <Compile Include="Models\Makale.cs" />
+    <Compile Include="Models\MakaleEtiket.cs" />
+    <Compile Include="Models\Resim.cs" />
+    <Compile Include="Models\Rol.cs" />
+    <Compile Include="Models\Yorum.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\image\._defaultUser.png" />
+    <Content Include="Content\image\._icon-openmail%402x.png" />
+    <Content Include="Content\image\._icon-openmail.png" />
+    <Content Include="Content\image\._icon-phone%402x.png" />
+    <Content Include="Content\image\._icon-phone2.png" />
+    <Content Include="Content\image\._icon-worldmap%402x.png" />
+    <Content Include="Content\image\._icon-worldmap.png" />
+    <Content Include="Content\image\._like.png" />
+    <Content Include="Content\image\._map-pin.png" />
+    <Content Include="Content\image\._view.png" />
+    <Content Include="Content\image\defaultUser.png" />
+    <Content Include="Content\image\icon-openmail%402x.png" />
+    <Content Include="Content\image\icon-openmail.png" />
+    <Content Include="Content\image\icon-phone%402x.png" />
+    <Content Include="Content\image\icon-phone2.png" />
+    <Content Include="Content\image\icon-worldmap%402x.png" />
+    <Content Include="Content\image\icon-worldmap.png" />
+    <Content Include="Content\image\like.png" />
+    <Content Include="Content\image\logomuz.jpg" />
+    <Content Include="Content\image\map-pin.png" />
+    <Content Include="Content\image\view.png" />
+    <Content Include="Content\MakaleResim\BuyukBoyut\boyahane_modulu-3ae4e1d8-2c17-4131-a71a-2d49dd82dba2.jpg" />
+    <Content Include="Content\MakaleResim\BuyukBoyut\bt-a340d37f-8a9d-45a2-81a1-bf850b325297.jpg" />
+    <Content Include="Content\MakaleResim\BuyukBoyut\cpm1-a8e57f6b-d06e-438c-805f-4098c6655a9a.jpg" />
+    <Content Include="Content\MakaleResim\BuyukBoyut\cpm2-13a9ea1c-5131-46aa-8735-230bd03cbe27.jpg" />
+    <Content Include="Content\MakaleResim\BuyukBoyut\cpm3-a60be22e-e471-456f-a5e6-987db3b5579e.jpg" />
+    <Content Include="Content\MakaleResim\BuyukBoyut\cpm4-656c2a23-3bdb-4d2d-ac36-70843b96aefd.jpg" />
+    <Content Include="Content\MakaleResim\BuyukBoyut\cpm5-71fcf1b3-ae56-4ec8-8fd1-635775cfac56.jpg" />
+    <Content Include="Content\MakaleResim\BuyukBoyut\satis-f5f9a96d-755c-42a5-ad43-295063dea8c3.jpg" />
+    <Content Include="Content\MakaleResim\BuyukBoyut\senbasgrup-a5f10886-5ee4-4f3c-bb5b-39cb390b88f1.jpg" />
+    <Content Include="Content\MakaleResim\BuyukBoyut\sirketlerde_verimlilik -0306f38a-5d75-438f-8039-75691c847346.jpg" />
+    <Content Include="Content\MakaleResim\BuyukBoyut\support-68a29ee2-6971-4eaa-af22-6104642c01e9.jpg" />
+    <Content Include="Content\MakaleResim\BuyukBoyut\user01-9d198cee-547f-49a9-97a1-7e9ea6cb60c3.png" />
+    <Content Include="Content\MakaleResim\BuyukBoyut\web-040e9763-0eb8-4eb3-9a0f-0e072377c127.png" />
+    <Content Include="Content\MakaleResim\BuyukBoyut\web_tasarimi-0cc42a88-2d58-4e6a-b237-1c19a91e1e38.png" />
+    <Content Include="Content\MakaleResim\KucukBoyut\boyahane_modulu-3ae4e1d8-2c17-4131-a71a-2d49dd82dba2.jpg" />
+    <Content Include="Content\MakaleResim\KucukBoyut\bt-a340d37f-8a9d-45a2-81a1-bf850b325297.jpg" />
+    <Content Include="Content\MakaleResim\KucukBoyut\cpm1-a8e57f6b-d06e-438c-805f-4098c6655a9a.jpg" />
+    <Content Include="Content\MakaleResim\KucukBoyut\cpm2-13a9ea1c-5131-46aa-8735-230bd03cbe27.jpg" />
+    <Content Include="Content\MakaleResim\KucukBoyut\cpm3-a60be22e-e471-456f-a5e6-987db3b5579e.jpg" />
+    <Content Include="Content\MakaleResim\KucukBoyut\cpm4-656c2a23-3bdb-4d2d-ac36-70843b96aefd.jpg" />
+    <Content Include="Content\MakaleResim\KucukBoyut\cpm5-71fcf1b3-ae56-4ec8-8fd1-635775cfac56.jpg" />
+    <Content Include="Content\MakaleResim\KucukBoyut\satis-f5f9a96d-755c-42a5-ad43-295063dea8c3.jpg" />
+    <Content Include="Content\MakaleResim\KucukBoyut\senbasgrup-a5f10886-5ee4-4f3c-bb5b-39cb390b88f1.jpg" />
+    <Content Include="Content\MakaleResim\KucukBoyut\sirketlerde_verimlilik -0306f38a-5d75-438f-8039-75691c847346.jpg" />
+    <Content Include="Content\MakaleResim\KucukBoyut\support-68a29ee2-6971-4eaa-af22-6104642c01e9.jpg" />
+    <Content Include="Content\MakaleResim\KucukBoyut\user01-9d198cee-547f-49a9-97a1-7e9ea6cb60c3.png" />
+    <Content Include="Content\MakaleResim\KucukBoyut\user01.png" />
+    <Content Include="Content\MakaleResim\KucukBoyut\web-040e9763-0eb8-4eb3-9a0f-0e072377c127.png" />
+    <Content Include="Content\MakaleResim\KucukBoyut\web_tasarimi-0cc42a88-2d58-4e6a-b237-1c19a91e1e38.png" />
+    <Content Include="Content\MakaleResim\OrtaBoyut\boyahane_modulu-3ae4e1d8-2c17-4131-a71a-2d49dd82dba2.jpg" />
+    <Content Include="Content\MakaleResim\OrtaBoyut\bt-a340d37f-8a9d-45a2-81a1-bf850b325297.jpg" />
+    <Content Include="Content\MakaleResim\OrtaBoyut\cpm1-a8e57f6b-d06e-438c-805f-4098c6655a9a.jpg" />
+    <Content Include="Content\MakaleResim\OrtaBoyut\cpm2-13a9ea1c-5131-46aa-8735-230bd03cbe27.jpg" />
+    <Content Include="Content\MakaleResim\OrtaBoyut\cpm3-a60be22e-e471-456f-a5e6-987db3b5579e.jpg" />
+    <Content Include="Content\MakaleResim\OrtaBoyut\cpm4-656c2a23-3bdb-4d2d-ac36-70843b96aefd.jpg" />
+    <Content Include="Content\MakaleResim\OrtaBoyut\cpm5-71fcf1b3-ae56-4ec8-8fd1-635775cfac56.jpg" />
+    <Content Include="Content\MakaleResim\OrtaBoyut\satis-f5f9a96d-755c-42a5-ad43-295063dea8c3.jpg" />
+    <Content Include="Content\MakaleResim\OrtaBoyut\senbasgrup-a5f10886-5ee4-4f3c-bb5b-39cb390b88f1.jpg" />
+    <Content Include="Content\MakaleResim\OrtaBoyut\sirketlerde_verimlilik -0306f38a-5d75-438f-8039-75691c847346.jpg" />
+    <Content Include="Content\MakaleResim\OrtaBoyut\support-68a29ee2-6971-4eaa-af22-6104642c01e9.jpg" />
+    <Content Include="Content\MakaleResim\OrtaBoyut\user01-9d198cee-547f-49a9-97a1-7e9ea6cb60c3.png" />
+    <Content Include="Content\MakaleResim\OrtaBoyut\web-040e9763-0eb8-4eb3-9a0f-0e072377c127.png" />
+    <Content Include="Content\MakaleResim\OrtaBoyut\web_tasarimi-0cc42a88-2d58-4e6a-b237-1c19a91e1e38.png" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\Style\css\bootstrap.min.css" />
+    <Content Include="Content\Style\css\color\._blue.css" />
+    <Content Include="Content\Style\css\color\._brown.css" />
+    <Content Include="Content\Style\css\color\._gray.css" />
+    <Content Include="Content\Style\css\color\._green.css" />
+    <Content Include="Content\Style\css\color\._lime.css" />
+    <Content Include="Content\Style\css\color\._pink.css" />
+    <Content Include="Content\Style\css\color\._purple.css" />
+    <Content Include="Content\Style\css\color\._red.css" />
+    <Content Include="Content\Style\css\color\._yellow.css" />
+    <Content Include="Content\Style\css\color\blue.css" />
+    <Content Include="Content\Style\css\color\brown.css" />
+    <Content Include="Content\Style\css\color\gray.css" />
+    <Content Include="Content\Style\css\color\green.css" />
+    <Content Include="Content\Style\css\color\lime.css" />
+    <Content Include="Content\Style\css\color\pink.css" />
+    <Content Include="Content\Style\css\color\purple.css" />
+    <Content Include="Content\Style\css\color\red.css" />
+    <Content Include="Content\Style\css\color\yellow.css" />
+    <Content Include="Content\Style\css\plugins.css" />
+    <Content Include="Content\Style\images\bseuLogo.jpg" />
+    <Content Include="Content\Style\images\Logo.jpg" />
+    <Content Include="Content\Style\js\bootstrap.min.js" />
+    <Content Include="Content\Style\js\jquery.min.js" />
+    <Content Include="Content\Style\js\plugins.js" />
+    <Content Include="Content\Style\js\scripts.js" />
+    <Content Include="Content\Style\type\bebas.css" />
+    <Content Include="Content\Style\type\bebas\bebasneue_bold-webfont.svg" />
+    <Content Include="Content\Style\type\bebas\bebasneue_book-demo.html" />
+    <Content Include="Content\Style\type\bebas\bebasneue_book-webfont.svg" />
+    <Content Include="Content\Style\type\bebas\bebasneue_regular-demo.html" />
+    <Content Include="Content\Style\type\bebas\bebasneue_regular-webfont.svg" />
+    <Content Include="Content\Style\type\budicons.css" />
+    <Content Include="Content\Style\type\budicons\budicon.svg" />
+    <Content Include="Content\Style\type\fontello.css" />
+    <Content Include="Content\Style\type\fontello\fontello-circle.svg" />
+    <Content Include="Content\Style\type\fontello\fontello-social.svg" />
+    <Content Include="Content\Style\type\fontello\fontello.svg" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Style\type\bebas\bebasneue_bold-webfont.eot" />
+    <Content Include="Content\Style\type\bebas\bebasneue_bold-webfont.ttf" />
+    <Content Include="Content\Style\type\bebas\bebasneue_bold-webfont.woff" />
+    <Content Include="Content\Style\type\bebas\bebasneue_bold-webfont.woff2" />
+    <Content Include="Content\Style\type\bebas\bebasneue_book-webfont.eot" />
+    <Content Include="Content\Style\type\bebas\bebasneue_book-webfont.ttf" />
+    <Content Include="Content\Style\type\bebas\bebasneue_book-webfont.woff" />
+    <Content Include="Content\Style\type\bebas\bebasneue_book-webfont.woff2" />
+    <Content Include="Content\Style\type\bebas\bebasneue_regular-webfont.eot" />
+    <Content Include="Content\Style\type\bebas\bebasneue_regular-webfont.ttf" />
+    <Content Include="Content\Style\type\bebas\bebasneue_regular-webfont.woff" />
+    <Content Include="Content\Style\type\bebas\bebasneue_regular-webfont.woff2" />
+    <Content Include="Content\Style\type\budicons\budicon.eot" />
+    <Content Include="Content\Style\type\budicons\budicon.ttf" />
+    <Content Include="Content\Style\type\budicons\budicon.woff" />
+    <Content Include="Content\Style\type\fontello\fontello-circle.eot" />
+    <Content Include="Content\Style\type\fontello\fontello-circle.ttf" />
+    <Content Include="Content\Style\type\fontello\fontello-circle.woff" />
+    <Content Include="Content\Style\type\fontello\fontello-social.eot" />
+    <Content Include="Content\Style\type\fontello\fontello-social.ttf" />
+    <Content Include="Content\Style\type\fontello\fontello-social.woff" />
+    <Content Include="Content\Style\type\fontello\fontello.eot" />
+    <Content Include="Content\Style\type\fontello\fontello.ttf" />
+    <Content Include="Content\Style\type\fontello\fontello.woff" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Kategori\KategoriEkle.cshtml" />
+    <Content Include="Views\Kategori\Index.cshtml" />
+    <Content Include="Views\Shared\KategoriWidget.cshtml" />
+    <Content Include="Views\Kategori\KategoriDuzenle.cshtml" />
+    <Content Include="Views\Admin\MakaleEkle.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Shared\MakaleListeleWidget.cshtml" />
+    <Content Include="Views\Kategori\KategoriListele.cshtml" />
+    <Content Include="Views\Shared\EtiketlerWidget.cshtml" />
+    <Content Include="Views\Admin\EtiketEkle.cshtml" />
+    <Content Include="Views\Admin\EtiketDuzenle.cshtml" />
+    <Content Include="Views\Admin\EtiketSil.cshtml" />
+    <Content Include="Views\Admin\EtiketListele.cshtml" />
+    <Content Include="Views\Etiket\Index.cshtml" />
+    <Content Include="Views\Shared\SiteHakkinda.cshtml" />
+    <Content Include="Views\Home\Iletisim.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\YazarResim\" />
+    <Folder Include="Script\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="packages.config" />
+    <Content Include="Views\Admin\TumMakaleler.cshtml" />
+    <Content Include="Views\Admin\MakaleDuzenle.cshtml" />
+    <Content Include="Views\Admin\MakaleSil.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Shared\PopulerMakalelerWidget.cshtml" />
+    <Content Include="Views\Admin\YazarOnaylari.cshtml" />
+    <Content Include="Views\Yazar\YazarOl.cshtml" />
+    <Content Include="Views\Yazar\YazarMakaleEkle.cshtml" />
+    <Content Include="Views\Kullanici\UyeOl.cshtml" />
+    <Content Include="Views\Admin\MakaleDetayGoster.cshtml" />
+    <Content Include="Views\Admin\MakaleDetayDuzelt.cshtml" />
+    <Content Include="Views\Admin\MakaleOnaylari.cshtml" />
+    <Content Include="Views\Kullanici\GirisYap.cshtml" />
+    <Content Include="Views\Home\MakaleAra.cshtml" />
+    <Content Include="Views\Shared\Arama.cshtml" />
+    <Content Include="Views\Makale\Detay.cshtml" />
+    <Content Include="Views\Kullanici\SifremiYenile.cshtml" />
+    <Content Include="Views\Kullanici\SifremiUnuttum.cshtml" />
+    <Content Include="Views\Admin\YorumOnaylari.cshtml" />
+    <Content Include="Views\Yazar\Makalelerim.cshtml" />
+    <Content Include="Views\Yazar\Duzenle.cshtml" />
+    <Content Include="Views\Admin\TumYorumlar.cshtml" />
+    <Content Include="Views\Admin\YorumSil.cshtml" />
+    <Content Include="Views\Admin\YorumDetayGoster.cshtml" />
+    <Content Include="Views\Home\BolumumuzHakkinda.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62627</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44346/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Bu proje bu bilgisayarda olmayan NuGet paketlerine başvuru yapıyor. Bunları indirmek için NuGet Paket Geri Yükleme'yi kullanın. Daha fazla bilgi için, bkz. http://go.microsoft.com/fwlink/?LinkID=322105. Eksik dosya: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

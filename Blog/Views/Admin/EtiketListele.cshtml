@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Blog.Models.Etiket>
+
+@{
+    ViewBag.Title = "EtiketListele";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>ETİKET LİSTELEME</h2>
+
+<p>
+    @Html.ActionLink("Yeni Etiket Ekle", "EtiketEkle")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Adi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adi)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "EtiketDuzenle", new { id = item.EtiketID }) |
+            @Html.ActionLink("Sil", "EtiketSil", new { id = item.EtiketID })
+        </td>
+    </tr>
+}
+
+</table>

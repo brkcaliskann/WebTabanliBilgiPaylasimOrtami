@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "MakaleAra";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ARAMA SONUCUNDA BULUNAN MAKALELER</h2>
+
+<br />
+<br />
+
+@model IEnumerable<Blog.Models.Makale>
+
+@helper IcerikKisalt(string icerik)
+{
+    if (icerik.Length > 300)
+    {
+        @icerik.Substring(0, 300);
+    }
+    else
+    {
+        @icerik;
+    }
+}
+<div class="blog-posts col-blog">
+
+    @foreach (Blog.Models.Makale mkl in Model)
+    {
+        <div class="post row">
+            <div class="col-sm-4">
+                <figure>
+                    <a href="/Makale/Detay/@mkl.MakaleID">
+                        <div class="text-overlay">
+                            <div class="info"><span>Hepsini Oku</span></div>
+                        </div>
+                        <img src="@mkl.Resim.OrtaBoyutResim" alt="" />
+                    </a>
+                </figure>
+            </div>
+            <div class="col-sm-8 post-content">
+                <div class="meta">
+                    <span class="date">@mkl.EklenmeTarihi.ToShortDateString()</span><span class="comments"><a href="#">@mkl.Yorum.Count <i class="icon-chat-1"></i></a></span>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <span>
+                            <a href="javascript:void(0);" class="begen" data-id="@mkl.MakaleID">@mkl.BegeniSayisi<img src="/Content/image/like.png" width="16" /></a>
+                        </span>
+                    }
+
+                    <span><a href="#">@mkl.GoruntulenmeSayisi<img src="/Content/image/view.png" /></a></span>
+                </div>
+
+                <h2 class="post-title"><a href="/Makale/Detay/@mkl.MakaleID">@mkl.Baslik</a></h2>
+                <p>@IcerikKisalt(mkl.Icerik)</p>
+            </div>
+        </div>
+
+    }
+
+</div>
+

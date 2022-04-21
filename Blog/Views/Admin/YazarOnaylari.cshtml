@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Blog.Models.Kullanici>
+
+@{
+    ViewBag.Title = "YazarOnaylari";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>YAZAR ONAYLARI</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Kullanıcı Resim
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Soyadi)
+        </th>
+        <th>
+            Doğum Tarihi
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mail)
+        </th>
+        <th>
+            Kullanıcı Adı
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Parola)
+        </th>
+        <th>
+            Kayıt Tarihi
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hakkinda)
+        </th>
+        <th></th>
+    </tr>
+
+    
+
+    @foreach (var item in Model)
+    {
+        if (item.Hakkinda != null || item.ResimID != null)
+        {
+        <tr>
+            <td>
+                <img src="@item.Resim.KucukBoyutResim" alt="" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soyadi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DogumTarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KullaniciAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parola)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KayitTarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hakkinda)
+            </td>
+            <td>
+                @Html.ActionLink("Onay Ver", "OnayVer", new { id = item.KullaniciID }) |
+                @Html.ActionLink("Onay Verme", "OnayVerme", new { id = item.KullaniciID }) |
+            </td>
+        </tr>
+        }
+    }
+</table>

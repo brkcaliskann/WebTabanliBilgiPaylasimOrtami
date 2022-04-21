@@ -1,0 +1,17 @@
+﻿
+@{
+    Layout = null;
+}
+<br />
+@using (Html.BeginForm("MakaleAra", "Home", FormMethod.Post))
+{
+    <div class="sidebox widget">
+        <h3 class="widget-title">Makale Ara</h3>
+        <form class="searchform" action="/Home/MakaleAra" method="get">
+            @Html.Editor("ara")
+
+            <button type="submit" class="btn btn-default">Ara</button>
+
+        </form>
+    </div>
+}

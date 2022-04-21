@@ -1,0 +1,93 @@
+﻿@model Blog.Models.Makale
+
+@{
+    ViewBag.Title = "YazarMakaleEkle";
+}
+
+<h2>MAKALE EKLE</h2>
+
+@using (Html.BeginForm("YazarMakaleEkle", "Yazar", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+@Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Baslik, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Baslik, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Baslik, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Icerik, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.Icerik , new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Icerik, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @*<div class="form-group">
+        @Html.LabelFor(model => model.EklenmeTarihi, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.EklenmeTarihi, new { htmlAttributes = new {  @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.EklenmeTarihi, "", new {  @class = "text-danger" })
+        </div>
+    </div>*@
+
+    @*<div class="form-group" >
+        @Html.LabelFor(model => model.GoruntulenmeSayisi, htmlAttributes: new { @type = "hidden", @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.GoruntulenmeSayisi, new { htmlAttributes = new { @type = "hidden", @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.GoruntulenmeSayisi, "", new { @type = "hidden", @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.BegeniSayisi, "Beğeni Sayısı", htmlAttributes: new { @type = "hidden", @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.BegeniSayisi, new { htmlAttributes = new { @type = "hidden", @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.BegeniSayisi, "", new { @type = "hidden", @class = "text-danger" })
+        </div>
+    </div>*@
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.KategoriID, "Kategori Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("KategoriID", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.KategoriID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.EtiketID, "Etiket Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("EtiketID", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.EtiketID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ResimID, "Resim", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="file" name="resim" id="resim" value="" accept=".jpg,.png,.gif,.JPEG,.jpeg" class="form-control" />
+            @Html.ValidationMessageFor(model => model.ResimID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+     <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="OLUŞTUR" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Ana Sayfaya Geri Dön", "Index","Home")
+</div>
+

@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@using PagedList
+@using PagedList.Mvc
+
+
+<script src="~/Content/style/js/jquery.min.js"></script>
+<script>
+    $(document).ready(function myfunction() {
+        $("a.begen").click(function myfunction() {
+            var id = $(this).data("id");
+            var link = "/Makale/Begen/" + id;
+            $.ajax({
+                type: "GET",
+                url: link,
+                success: function (result) {
+                    $("a.begen").html(result);
+                }
+            });
+        });
+    });
+
+</script>
+
+@model PagedList.IPagedList<Blog.Models.Makale>
+
+@helper IcerikKisalt(string icerik)
+{
+    if (icerik.Length > 300)
+    {
+        @icerik.Substring(0, 300);
+    }
+    else
+    {
+        @icerik;
+    }
+}
+<div class="blog-posts col-blog">
+
+    @foreach (var mkl in Model)
+    {
+        <div class="post row">
+            <div class="col-sm-4">
+                <figure>
+                    <a href="/Makale/Detay/@mkl.MakaleID">
+                        <div class="text-overlay">
+                            <div class="info"><span>Hepsini Oku</span></div>
+                        </div>
+                        <img src="@mkl.Resim.OrtaBoyutResim" alt="" />
+                    </a>
+                </figure>
+            </div>
+            <div class="col-sm-8 post-content">
+                <div class="meta">
+                    <span class="date">@mkl.EklenmeTarihi.ToShortDateString()</span><span class="comments"><a href="#">@mkl.Yorum.Count <i class="icon-chat-1"></i></a></span>
+
+                    @*@if (User.Identity.IsAuthenticated)
+                        {*@
+                    <span>
+                        <a href="javascript:void(0);" class="begen" data-id="@mkl.MakaleID">@mkl.BegeniSayisi<img src="/Content/image/like.png" width="16" /></a>
+                    </span>
+                    @*}*@
+
+                    <span><a href="#">@mkl.GoruntulenmeSayisi<img src="/Content/image/view.png" /></a></span>
+                </div>
+
+                <h2 class="post-title"><a href="/Makale/Detay/@mkl.MakaleID">@mkl.Baslik</a></h2>
+                <p>@IcerikKisalt(mkl.Icerik) ...</p>
+            </div>
+        </div>
+
+    }
+
+</div>
+
+@Html.PagedListPager(Model, _sayfaNo => Url.Action("Index", new { SayfaNo = _sayfaNo }))

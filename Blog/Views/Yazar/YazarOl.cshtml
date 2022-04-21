@@ -1,0 +1,134 @@
+﻿@model Blog.Models.Kullanici
+
+@{
+    ViewBag.Title = "YazarOl";
+}
+
+<h2>YAZAR OL</h2>
+
+@using (Html.BeginForm("YazarOl", "Yazar", FormMethod.Post, new { @enctype = "multipart/form-data" })) 
+{
+                @Html.AntiForgeryToken()
+            
+<div class="form-horizontal">
+    <h4>Kullanici</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="form-group">
+        
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.KullaniciID, new { htmlAttributes = new { @type = "hidden", @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.KullaniciID, "", new { @type = "hidden", @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Adi, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Adi, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Adi, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Soyadi, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Soyadi, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Soyadi, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DogumTarihi, "Doğum Tarihi" , htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DogumTarihi, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DogumTarihi, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Mail, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Mail, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Mail, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.KullaniciAdi, "Kullanıcı Adı" , htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.KullaniciAdi, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.KullaniciAdi, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Parola, new { htmlAttributes = new { @type = "hidden", @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Parola, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @*<div class="form-group">
+        @Html.LabelFor(model => model.KayitTarihi, "Kayıt Tarihi" , htmlAttributes: new { @type = "hidden", @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.KayitTarihi, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.KayitTarihi, "", new { @class = "text-danger" })
+        </div>
+    </div>*@
+
+    <!--<div class="form-group">
+        @Html.LabelFor(model => model.OnaylandiMi, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                <input type="checkbox" name="AktifMi" value="" />
+                <label>Aktif mi</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.YazarMi, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                <input type="checkbox" name="AktifMi" value="" />
+                <label>Aktif mi</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.AktifMi, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                <input type="checkbox" name="AktifMi" value="" />
+                <label >Aktif mi</label>-->
+    @*@Html.CheckBoxFor(model => model.AktifMi = true)*@
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Hakkinda, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.Hakkinda, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Hakkinda, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ResimID, "Resim", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="file" name="resim" id="resim" value="" accept=".jpg,.png,.gif,.JPEG,.jpeg" class="form-control" />
+            @Html.ValidationMessageFor(model => model.ResimID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="OLUŞTUR" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+

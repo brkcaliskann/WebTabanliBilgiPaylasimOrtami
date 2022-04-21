@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Blog.Models.Makale>
+
+@{
+    ViewBag.Title = "MakaleOnaylari";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>MAKALE ONAYLARI</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Etiket Adı
+        </th>
+        <th>
+            Kategori Adı
+        </th>
+        <th>
+            Kullanıcı Adı
+        </th>
+        <th>
+            Makale Resim
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Baslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Icerik)
+        </th>
+        <th>
+            Eklenme Tarihi
+        </th>
+        <th></th>
+    </tr>
+
+    @helper IcerikKisalt(string icerik)
+    {
+        if (icerik.Length > 35)
+        {
+            @icerik.Substring(0, 35);
+        }
+        else
+        {
+            @icerik;
+        }
+    }
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Etiket.Adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kategori.Adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kullanici.Adi)
+            </td>
+            <td>
+                <img src="@item.Resim.KucukBoyutResim" alt="" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Baslik)
+            </td>
+            <td>
+
+                    <p>@IcerikKisalt(item.Icerik) ...</p>
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EklenmeTarihi)
+            </td>
+
+            <td>
+                @Html.ActionLink("Onay Ver", "MakaleOnayVer", new { id = item.MakaleID }) |
+                @Html.ActionLink("Sil", "MakaleOnayVerme", new { id = item.MakaleID })<br />
+                @Html.ActionLink("Detay Goster", "MakaleDetayGoster", new { id = item.MakaleID })<br />
+                @Html.ActionLink("Makale Düzenle", "MakaleDetayDuzelt", new { id = item.MakaleID })
+
+        </td>
+        </tr>
+    }
+
+</table>
+

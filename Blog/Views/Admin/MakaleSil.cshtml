@@ -1,0 +1,65 @@
+﻿@model Blog.Models.Makale
+
+@{
+    ViewBag.Title = "Makale Sil";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>MAKALE SİL</h2>
+
+<h3>Bu Makaleyi Silmek İstediğinizden Emin misiniz?</h3>
+<div>
+    <h4>Makale</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KategoriID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KategoriID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ResimID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResimID)
+        </dd>
+      
+        <dt>
+            @Html.DisplayNameFor(model => model.Baslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Baslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Icerik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Icerik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EklenmeTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EklenmeTarihi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Listeye Geri Dön", "TumMakaleler")
+        </div>
+    }
+</div>

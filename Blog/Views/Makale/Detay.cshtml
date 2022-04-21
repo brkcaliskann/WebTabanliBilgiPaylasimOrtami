@@ -1,0 +1,156 @@
+﻿@model Blog.Models.Makale
+
+@{
+    ViewBag.Title = "Detay";
+}
+
+<style>
+    .line-breaks {
+        white-space: pre-line;
+    }
+</style>
+
+@helper SureYaz(DateTime tarih)
+{
+    TimeSpan sure = DateTime.Now - tarih;
+
+    if (sure.TotalMilliseconds < 0)
+    {
+        <div class="time-ago"></div>
+
+    }
+    else if (sure.TotalMinutes < 1)
+    {
+        <div class="time-ago">Şimdi</div>
+    }
+    else if (sure.TotalHours < 1)
+    {
+        <div class="time-ago">@sure.Minutes dakika önce</div>
+
+    }
+    else if (sure.TotalDays < 1)
+    {
+        <div class="time-ago">@sure.Hours saat önce</div>
+
+    }
+    else
+    {
+        <div class="time-ago">@tarih.ToString("d.MM.yyyy") tarihinde</div>
+    }
+}
+
+<div class="blog-posts classic-blog single">
+    <div class="post format-image">
+        <div class="meta">
+            <span class="date">@Model.EklenmeTarihi</span>
+            <span class="categories"><a href="/Kategori/Index/@Model.KategoriID">@Model.Kategori.Adi</a></span>
+            <span class="comments"><a href="#Yorum">@Model.Yorum.Count <i class="icon-chat-1"></i></a></span>
+        </div>
+        <h1 class="post-title">@Model.Baslik</h1>
+        <figure class="main">
+            <img src="@Model.Resim.BuyukBoyutResim" alt="" />
+        </figure>
+        <div class="post-content">
+            <div class="blog-item-inner">
+                <p><span class="line-breaks">@Model.Icerik</span></p>
+            </div>
+
+            <div class="meta tags">
+
+                @if (Model.Etiket.MakaleEtiket.Count > -1)
+                {
+                    <a href="/Etiket/Index/@Model.EtiketID">@Model.Etiket.Adi </a>
+                }
+
+            </div>
+
+            @*<div class="click-share">
+                    <ul class="social">
+                        <li><a class="btn share-facebook" href="/Makale/Begen/">Like</a></li>
+                        <li><a class="btn share-twitter" href="#">Tweet</a></li>
+                    </ul>
+                </div>*@
+        </div>
+    </div>
+</div>
+
+<!-- /.blog-posts -->
+
+@if (Model.KullaniciID == 3)
+{
+    <div class="about-author dark-wrapper">
+        <div class="author-details">
+            <h3>EKLEYEN: @Model.Kullanici.Adi</h3>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+}
+else
+{
+    <div class="about-author dark-wrapper">
+        <div class="author-image"> <img alt="" src="@Model.Kullanici.Resim.KucukBoyutResim" /> </div>
+        <div class="author-details">
+            <h3>@Model.Kullanici.Adi  @Model.Kullanici.Soyadi HAKKINDA</h3>
+            <p>@Model.Kullanici.Hakkinda</p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+}
+<div class="divide100"></div>
+<a id="Yorum" />
+<div id="comments">
+    <h3>@Model.Yorum.Count Yorum</h3>
+    <ol id="singlecomments" class="commentlist">
+        @foreach (var yrm in Model.Yorum)
+        {
+            if (yrm.AktifMi == true)
+            {
+                <li>
+                    <div class="comment-wrapper">
+                        <div class="user"> <img alt="" src="@yrm.Kullanici.Resim.KucukBoyutResim" class="avatar" width="70" /> </div>
+                        <div class="message">
+                            <div class="arrow-box">
+                                <div class="info">
+                                    <h2>@yrm.Kullanici.KullaniciAdi @yrm.Kullanici.Soyadi </h2>
+                                    <div class="meta"><span class="date">  @SureYaz(yrm.EklenmeTarihi.GetValueOrDefault())</span> </div>
+                                </div>
+                                <p>@yrm.Icerik</p>
+
+                            </div>
+                            <br />
+
+                        </div>
+                        @if (Convert.ToInt32(Session["uyeid"]) == yrm.KullaniciID || User.IsInRole("Admin"))
+                        {
+                            <a class="btn btn-success" href="/Makale/YorumSil/@yrm.YorumID">Yorumu Sil</a>
+                        }
+                    </div>
+                </li>
+            }
+        }
+    </ol>
+</div>
+
+<!-- /#comments -->
+
+<div class="divide100"></div>
+<div class="comment-form-wrapper">
+    <h1>DÜŞÜNCELERİNİ PAYLAŞMAK İSTERMİSİN?</h1>
+    <form class="comment-form" action="/Makale/YorumYaz/@Model.MakaleID" method="post">
+
+        @if (Session["uyeid"] != null)
+        {
+            <div class="message-field">
+                <textarea name="Icerik" rows="5" cols="30" placeholder="Yorumunuzu Buraya Yazın..." required></textarea>
+            </div>
+            <button type="submit" value="Gönder" class="btn btn-submit">Gönder</button>
+        }
+
+        else
+        {
+            <h2 style="background-color:blue;color:white"><i>MAKALEYE YORUM YAPMAK İÇİN KULLANICI GİRİŞİ YAPMALISINIZ</i></h2>
+            <p><a href="/Kullanici/GirisYap1/">Giriş Yap</a></p>
+        }
+    </form>
+</div>
+

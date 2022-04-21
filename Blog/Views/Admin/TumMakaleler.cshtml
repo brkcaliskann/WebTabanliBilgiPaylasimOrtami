@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Blog.Models.Makale>
+
+@{
+    ViewBag.Title = "TumMakaleler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>TUM MAKALELER</h2>
+
+<p>
+    @Html.ActionLink("Yeni Makale Oluştur", "MakaleEkle")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Kategori Adı
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Baslik)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.EklenmeTarihi)
+        </th>
+        <th>
+            Görüntülenme
+        </th>
+        <th>
+            Beğeni
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kategori.Adi)
+        </td>
+        
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Baslik)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.EklenmeTarihi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GoruntulenmeSayisi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BegeniSayisi)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "MakaleDuzenle", new { id=item.MakaleID }) |
+            
+            @Html.ActionLink("Sil", "MakaleSil", new { id=item.MakaleID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,64 @@
+﻿@{ Layout = null; }
+@model Blog.Models.Kullanici
+<link href="~/Content/Style/css/login.css" rel="stylesheet" />
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+@using (Html.BeginForm("GirisYap", "Kullanici", new { FormMethod.Post }))
+{
+<div class="container">
+    <div class="row text-center mb-4">
+        <div class="col-md-12">
+        </div>
+    </div>
+    <div class="row text-center">
+        <div style="margin-top:150px" class="col-md-5 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="login-img">
+                        <img src="~/Content/Style/images/Logo.jpg" />
+                    </div>
+                    <div style="margin-left:70px" class="login-form mt-4">
+                        <form action="/Kullanici/GirisYap" method="post">
+                            <div class="form-row">
+                                <div class="form-group col-md-10">
+
+                                    @Html.TextBoxFor(m => m.KullaniciAdi, new { @class = "form-control", placeholder = "Kullanıcı Adınızı Giriniz" })
+                                </div>
+                                <div class="form-group col-md-10">
+
+
+                                    @Html.PasswordFor(m => m.Parola, new { @class = "form-control", placeholder = "Şifreyi Giriniz" })
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        @Html.CheckBoxFor(m => m.BeniHatirla)
+                                        <label class="form-check-label">Beni Hatırla</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <button style="width:280px" type="submit" class="btn btn-danger">Giriş Yap</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div style="margin-left:160px" class="logi-forgot mt-2">
+                        <a href="/Kullanici/SifremiUnuttum">Şifremi Unuttum </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <br />
+       
+    </div>
+
+</div>}
+
+

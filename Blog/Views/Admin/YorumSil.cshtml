@@ -1,0 +1,61 @@
+﻿@model Blog.Models.Yorum
+
+@{
+    ViewBag.Title = "YorumSil";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>YorumSil</h2>
+
+<h3>YORUMU SİLMEK İSTİYORMUSUNUZ?</h3>
+<div>
+    <h4>Yorum</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Kullanıcının Adı
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kullanici.Adi)
+        </dd>
+
+        <dt>
+            Makale Başlık
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Makale.Baslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Icerik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Icerik)
+        </dd>
+
+       
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EklenmeTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EklenmeTarihi)
+        </dd>
+
+        
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="SİLMEK İSTİYORMUSUNUZ?" class="btn btn-default" /> |
+            @Html.ActionLink("Listeye Geri Dön", "YorumOnaylari")
+        </div>
+    }
+</div>

@@ -1,0 +1,227 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr-TR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8">
+    <meta name="language" content="Turkish">
+    <meta name="revisit-after" content="1 days">
+    <meta name="author" content="">
+    <meta name="google-site-verification" content="google0acdacbde9185492.html" />
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-73889702-1"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-73889702-1');
+    </script>
+
+    <link rel="shortcut icon" href="/Content/style/images/bseuLogo.jpg">
+    <title> BŞEÜ Blog Sitesine Hoşgeldiniz  - @ViewBag.Title</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/Content/style/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Content/style/css/plugins.css" rel="stylesheet">
+    <link href="/Content/style.css" rel="stylesheet">
+    <link href="/Content/style/css/color/red.css" rel="stylesheet">
+    <link href="/Content/style/type/bebas.css" rel="stylesheet">
+    <link href="/Content/style/type/fontello.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+          <script src="/Content/style/js/html5shiv.js"></script>
+          <script src="/Content/https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+          <![endif]-->
+    @RenderSection("head", false)
+</head>
+<body>
+    <div id="preloader"><div id="status"><div class="spinner"></div></div></div>
+    <div class="body-wrapper">
+        <div class="navbar default">
+            <div class="navbar-header">
+                <div class="container">
+                    <div class="basic-wrapper">
+                        <a class="btn responsive-menu pull-right" data-toggle="collapse" data-target=".navbar-collapse"><i></i></a>
+                        <div class="navbar-brand"><a href="http://bilecik.edu.tr"><img src="~/Content/image/logomuz.jpg" alt="" data-src="/Content/image/logomuz.jpg" data-ret="/Content/image/logomuz.jpg" class="retina" /></a></div>
+                    </div>
+                    <nav class="collapse navbar-collapse pull-right">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/Home/Index">ANA SAYFA</a></li>
+                            <li><a href="/Home/Hakkimizda">BÖLÜMÜMÜZ HAKKINDA</a></li>
+                            <li><a href="/Home/Iletisim">İLETİŞİM</a></li>
+
+
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="dropdown">
+                                    <a href="/Admin/Index" class="dropdown-toggle js-activated">ADMİN PANELİ</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/Kategori/KategoriListele">KATEGORİ DÜZENLE</a></li>
+                                        <li><a href="/Admin/EtiketListele">ETİKET DÜZENLE</a></li>
+                                        <li><a href="/Admin/TumMakaleler">TÜM MAKALELER</a></li>
+                                        @*<li><a href="/Admin/TumYorumlar">TÜM YORUMLAR</a></li>*@
+                                        <li><a href="/Admin/YazarOnaylari">YAZAR ONAYLARI</a></li>
+                                        <li><a href="/Admin/MakaleOnaylari">MAKALE ONAYLARI</a></li>
+                                        <li><a href="/Admin/YorumOnaylari">YORUM ONAYLARI</a></li>
+                                    </ul>
+                                </li>
+                            }
+
+                           </ul>
+                        <!--/.navbar-nav -->
+                    </nav>
+                    <!--/.nav-collapse -->
+                </div>
+                <!--/.container -->
+            </div>
+            <!--/.navbar-header -->
+        </div>
+        <!--/.navbar -->
+        <div class="offset"></div>
+        <div class="dark-wrapper page-title ">
+            <div class="container inner">
+                @*<h1 style="font-weight:bold;"> @ViewBag.Title </h1>*@
+
+                <div class="row">
+                    <div class="col-xs-6">
+                        <h1 style="font-family:'Segoe Print'">BŞEÜ Blog Hoşgeldiniz </h1>
+                    </div>
+                    <div class="col-sm-6 text-right breadcrumbs  pull-right">
+                        <ul class="list-inline list-unstyled">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+
+                                using (Html.BeginForm("CikisYap", "Kullanici", FormMethod.Post))
+                                {
+                                    <li><a href="javascript:;" onclick="document.forms[0].submit();"><span style="font-family: 'Segoe Print'; font-size: 17px; font-weight: bold "> Hoş Geldin @User.Identity.Name ÇIKIŞ YAP </span></a></li>
+                                }
+
+                            }
+                            else
+                            {
+                                <li><a href="/Kullanici/GirisYap"><span style="font-family: 'Segoe Print'; font-size: 17px; font-weight: bold ">GİRİŞ YAP</span></a></li>
+                                <li>/</li>
+                                <li><a href="/Kullanici/UyeOl"><span style="font-family: 'Segoe Print'; font-size: 17px; font-weight: bold ">ÜYE OL</span></a></li>
+                            }
+
+                        </ul>
+                    </div>
+                    <!--/.container -->
+                </div>
+            </div>
+        </div>
+        <!--/.page-title -->
+
+        <div class="container inner">
+            <div class="row">
+                <div class="col-sm-12 content">
+
+                    <!-- /.blog-posts -->
+                    @RenderBody()
+
+                    <!-- /.pagination -->
+
+                </div>
+                <!-- /.content -->
+                <br />
+                <!--<aside class="col-sm-4 sidebar lp30">
+                    @{
+                        Html.RenderAction("KategoriWidget", "Kategori");
+                    }
+
+                    @{
+                        Html.RenderPartial("SiteHakkinda");
+                    }
+
+                    @{
+                        Html.RenderAction("EtiketlerWidget", "Etiket");
+                    }
+                    <!-- /.widget -->
+                <!--</aside>-->
+                <!-- /.col-sm-4 .sidebar -->
+
+            </div>
+            <!-- /.row -->
+        </div>
+        <!--/.container -->
+        <footer class="footer black-wrapper">
+            <div class="container inner">
+                <div class="row">
+
+                    <div class="col-sm-3">
+                        <div class="widget">
+
+                            <!-- /.post-list -->
+                        </div>
+                        <!-- /.widget -->
+                    </div>
+                    <!-- /column -->
+
+                    <div class="col-sm-3">
+                        <div class="widget">
+                            @{
+                                Html.RenderAction("KategoriWidget", "Kategori");
+                            }
+                        </div>
+                        <!-- /.widget -->
+                    </div>
+                    <!-- /column -->
+
+                    <div class="col-sm-3">
+                        <div class="widget">
+                            <h3 class="widget-title">İletisim</h3>
+                            <div class="contact-info">
+                                <i class="icon-location"></i> Pelitözü Mah. Fatih Sultan Mehmet Bulvarı No:27 11230 Merkez/BİLECİK <br />
+                                <i class="icon-phone"></i>0 228 214 12 30 <br />
+                                <i class="icon-phone"></i>0228 214 11 11(BŞEÜ Santral) <br />
+                                <i class="icon-mail"></i> <a href="mailto:bm_bb@bilecik.edu.tr">bm_bb@bilecik.edu.tr</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /column -->
+
+                    <div class="col-sm-3">
+                        <div class="widget">
+                            @{
+                                Html.RenderAction("EtiketlerWidget", "Etiket");
+                            }
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- .container -->
+
+            <div class="sub-footer">
+                <div class="container">
+                    <p class="pull-left">© @DateTime.Today.Year. Tüm Hakları Saklıdır. </p>
+                    <ul class="footer-menu pull-right">
+                        <li><a href="/Home/Index">ANA SAYFA</a></li>
+                        <li><a href="/Home/Hakkimizda">BÖLÜMÜMÜZ HAKKINDA</a></li>
+                        <li><a href="/Home/Iletisim">İLETİŞİM</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <!-- /footer -->
+    </div>
+    <!--/.body-wrapper -->
+    <script src="/Content/style/js/jquery.min.js"></script>
+    <script src="/Content/style/js/bootstrap.min.js"></script>
+    <script src="/Content/style/js/plugins.js"></script>
+    <script src="/Content/style/js/scripts.js"></script>
+</body>
+</html>

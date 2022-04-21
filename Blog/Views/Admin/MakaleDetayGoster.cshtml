@@ -1,0 +1,35 @@
+﻿@model Blog.Models.Makale
+@{
+    ViewBag.Title = "MakaleDetayGoster";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .line-breaks {
+        white-space: pre-line;
+    }
+</style>
+
+<div class="blog-posts classic-blog single">
+    <div class="post format-image">
+        <div class="meta">
+            <span class="date">@Model.EklenmeTarihi</span>
+            <span class="categories"><a href="/Kategori/Index/@Model.KategoriID">@Model.Kategori.Adi</a></span>
+
+        </div>
+        <h1 class="post-title">@Model.Baslik</h1>
+        <figure class="main">
+            <img src="@Model.Resim.BuyukBoyutResim" alt="" />
+        </figure>
+
+        <div class="blog-item-inner">
+            <p><span class="line-breaks"> @Model.Icerik</span></p>
+        </div>
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Listeye Geri Dön", "MakaleOnaylari")
+</p>
+
+

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Blog.Models.Makale>
+
+@{
+    ViewBag.Title = "Makalelerim";
+}
+
+<h2>MAKALELERİM</h2>
+
+@helper IcerikKisalt(string icerik)
+{
+    if (icerik.Length > 35)
+    {
+        @icerik.Substring(0, 35);
+    }
+    else
+    {
+        @icerik;
+    }
+}
+
+<p>
+    @Html.ActionLink("Yeni Makale Yaz", "YazarMakaleEkle", "Yazar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Baslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Icerik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EklenmeTarihi)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Baslik)
+            </td>
+            <td>
+                <p>@IcerikKisalt(item.Icerik) ...</p>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EklenmeTarihi)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Duzenle", new { id = item.MakaleID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Ana Sayfaya Geri Dön", "Index", "Home")
+</div>

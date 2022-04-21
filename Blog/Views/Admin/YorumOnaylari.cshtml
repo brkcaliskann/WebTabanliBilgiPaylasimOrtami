@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Blog.Models.Yorum>
+
+@{
+    ViewBag.Title = "YorumOnaylari";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>YorumOnaylari</h2>
+
+
+@helper IcerikKisalt(string icerik)
+{
+    if (icerik.Length > 35)
+    {
+        @icerik.Substring(0, 35);
+    }
+    else
+    {
+        @icerik;
+    }
+}
+
+<table class="table">
+    <tr>
+
+        <th>
+           Makale Başlık
+        </th>
+        <th>
+           Yorum İçerik
+        </th>
+        <th>
+           Kullanıcı Adı
+        </th>
+        <th>
+           Kullanıcı Soyadı
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kullanici.Mail)
+        </th>
+        <th>
+           Eklenme Tarihi
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Makale.Baslik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Icerik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kullanici.Adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kullanici.Soyadi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kullanici.Mail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EklenmeTarihi)
+            </td>
+
+            <td>
+                @Html.ActionLink("Onay Ver", "YorumOnayVer", new { id = item.YorumID }) |
+                @Html.ActionLink("Sil", "YorumOnayVerme", new { id = item.YorumID }) |
+
+            </td>
+        </tr>
+    }
+
+</table>

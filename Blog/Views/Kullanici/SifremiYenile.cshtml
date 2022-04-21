@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "SifremiYenile";
+    Layout = null;
+}
+
+
+<link href="/Content/style/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="row">
+    <div class="col-md-4 col-sm-4 col-md-offset-4 col-sm-offset-4">
+        <section class="page-title">
+            <h1>Giriş Yap</h1>
+            @ViewBag.Uyari
+        </section>
+        <!--end page-title-->
+        <section>
+            <form class="form inputs-underline" method="post">
+                <div class="form-group">
+                    <label for="email">E Posta</label>
+                    <input type="email" class="form-control" required="" name="Mail" id="Mail" placeholder="Mail Adresiniz">
+                </div>
+                <div class="form-group">
+                    <label for="dogrulama">Doğrulama Kodu</label>
+                    <input type="text" class="form-control" required="" name="kod" id="kod" placeholder="Kodunuz">
+                </div>
+                <!--end form-group-->
+                <div class="form-group">
+                    <label for="password">Yeni Şifreniz</label>
+                    <input type="password" class="form-control" required="" name="sifre" id="sifre" placeholder="Şifreniz">
+                </div>
+                <div class="form-group center">
+                    <button type="submit" class="btn btn-primary width-100">Şifreyi Yenile</button>
+                </div>
+                <!--end form-group-->
+            </form>
+
+            <br />
+            <br />
+
+            <div>
+                @Html.ActionLink("Kullanıcı Giriş Sayfasına Geri Dön", "GirisYap1")
+            </div>
+
+            <hr>
+
+
+        </section>
+    </div>
+    <!--col-md-4-->
+    
+
+</div>
+
