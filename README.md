@@ -90,7 +90,6 @@ Aşağıda geliştirilmiş olan projenin ana sayfasına ait ekran çıktısı g�
 ![Ana_Sayfa3](https://user-images.githubusercontent.com/85406429/164337390-b5a08a85-18ed-41e9-b735-954da3322949.png)
 ![Makale_Detay](https://user-images.githubusercontent.com/85406429/164337880-70f3f4a3-c6c3-418f-9928-92c2a2952647.png)
 
-
 ## Kullanılan Teknolojiler
 - ASP.NET Framework 4.7.2 Mvc
 - Microsoft SQL Server Database
@@ -109,8 +108,8 @@ Aşağıda geliştirilmiş olan projenin ana sayfasına ait ekran çıktısı g�
 ## Nasıl Çalıştırırım?
 
 <div align="justify">
-Projeye ait gerekli dosyaları bilgisayarınıza indirdikten sonra .sql uzantılı <em>"BlogDB"</em> scriptini <em>"Execute"</em> ettikten sonra projeye ait gerekli veritabanı ve veritabanı tabloları SQL Server'ınız içerisinde oluşturulmuş olucaktır. Ardından indirmiş olduğunuz klasör içerisindeki sln uzantılı <em>"Blog.sln"</em> dosyasını açıp projeye çalıştırabilirsiniz.  
- </div>
+Projeye ait gerekli dosyaları bilgisayarınıza indirdikten sonra .sql uzantılı <em>"BlogDB"</em> scriptini <em>"Execute"</em> ettikten sonra projeye ait gerekli veritabanı ve veritabanı tabloları SQL Server'ınız içerisinde oluşturulmuş olucaktır. Daha sonra indirmiş olduğunuz klasör içerisindeki sln uzantılı <em>"Blog.sln"</em> dosyasını açınız. Projeye ait solution üzerine sağ tıklayıp ilk önce <em>"Clean Solution"</em> seçeneğini ardından ise <em>"Rebuild Solution"</em>'ı seçerek projeyi derleyiniz. Derleme işlemlerini başarıyla tamamlandıktan sonra projeyi çalıştırabilirsiniz.  
+</div>
 
 ## Çalışmaya Ait Detaylı Videolu Anlatım
 
