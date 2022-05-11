@@ -108,7 +108,7 @@ Aşağıda geliştirilmiş olan projenin ana sayfasına ait ekran çıktısı g�
 ## Nasıl Çalıştırırım?
 
 <div align="justify">
-Projeye ait gerekli dosyaları bilgisayarınıza indirdikten sonra .sql uzantılı <em>"BlogDB"</em> scriptini <em>"Execute"</em> ettikten sonra projeye ait gerekli veritabanı ve veritabanı tabloları SQL Server'ınız içerisinde oluşturulmuş olucaktır. Daha sonra indirmiş olduğunuz klasör içerisindeki sln uzantılı <em>"Blog.sln"</em> dosyasını açınız. Projeye ait solution üzerine sağ tıklayıp ilk önce <em>"Clean Solution"</em> seçeneğini ardından ise <em>"Rebuild Solution"</em>'ı seçerek projeyi derleyiniz. Derleme işlemlerini başarıyla tamamladıktan sonra projeyi çalıştırabilirsiniz.  
+Projeye ait gerekli dosyaları bilgisayarınıza indirip .sql uzantılı <em>"BlogDB"</em> scriptini <em>"Execute"</em> ettikten sonra projeye ait gerekli veritabanı ve veritabanı tabloları SQL Server'ınız içerisinde oluşturulmuş olucaktır. Daha sonra indirmiş olduğunuz klasör içerisindeki sln uzantılı <em>"Blog.sln"</em> dosyasını açınız. Projeye ait solution üzerine sağ tıklayıp ilk önce <em>"Clean Solution"</em> seçeneğini ardından ise <em>"Rebuild Solution"</em>'ı seçerek projeyi derleyiniz. Derleme işlemlerini başarıyla tamamladıktan sonra projeyi çalıştırabilirsiniz.  
 </div>
 
 ## Çalışmaya Ait Detaylı Videolu Anlatım
